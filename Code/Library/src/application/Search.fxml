@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+   <children>
+      <Button fx:id="btn1" layoutX="21.0" layoutY="40.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="55.0" prefWidth="133.0" text="Suchen" />
+      <Button fx:id="btn3" layoutX="21.0" layoutY="193.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="55.0" prefWidth="133.0" text="Rückgabe" />
+      <Button fx:id="btn2" layoutX="21.0" layoutY="115.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="55.0" prefWidth="133.0" text="Ausleihen" />
+      <Button fx:id="btn4" layoutX="21.0" layoutY="280.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="55.0" prefWidth="133.0" text="Konto" />
+      <Label layoutX="437.0" layoutY="51.0" text="Suchscene!" />
+   </children>
+</AnchorPane>
