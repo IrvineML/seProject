@@ -1,15 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
    <children>
-      <Button fx:id="btn1" layoutX="21.0" layoutY="40.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="55.0" prefWidth="133.0" text="Suchen" />
-      <Button fx:id="btn3" layoutX="21.0" layoutY="193.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="55.0" prefWidth="133.0" text="Rückgabe" />
-      <Button fx:id="btn2" layoutX="21.0" layoutY="115.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="55.0" prefWidth="133.0" text="Ausleihen" />
-      <Button fx:id="btn4" layoutX="21.0" layoutY="280.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="55.0" prefWidth="133.0" text="Konto" />
-      <Label layoutX="387.0" layoutY="68.0" text="Rückgabe" />
+      <VBox layoutX="30.0" layoutY="43.0" prefHeight="481.0" prefWidth="188.0" spacing="10.0">
+         <children>
+            <Button fx:id="accountBtn" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="88.0" prefWidth="182.0" text="Konto">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="60.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="searchBtn" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="88.0" prefWidth="182.0" text="Suchen">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="borrowBtn" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="88.0" prefWidth="182.0" text="Ausleihen">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="returnBtn" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="88.0" prefWidth="182.0" text="Rückgabe">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <Label layoutX="395.0" layoutY="40.0" text="Ausleihen" />
    </children>
 </AnchorPane>

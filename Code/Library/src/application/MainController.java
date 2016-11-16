@@ -14,49 +14,50 @@ import javafx.stage.Stage;
 public class MainController {
 	
 	@FXML
-	Button btn1;
+	Button searchBtn;
 	
 	@FXML
-	Button btn2;
+	Button borrowBtn;
 	
 	@FXML
-	Button btn3;
+	Button returnBtn;
 	
 	@FXML
-	Button btn4;
+	Button accountBtn;
 	
 	
+	//Handler für die Buttons des Menüs
 	@FXML
 	private void handleButtonAction(ActionEvent event) throws IOException{
 		Stage stage; 
 		Parent root;
    
-		if(event.getSource()==btn1) {
+		if(event.getSource()==searchBtn) {
 			System.out.println("Pressed Btn1");
 			//get reference to the button's stage         
-			stage =(Stage) btn1.getScene().getWindow();
+			stage =(Stage) searchBtn.getScene().getWindow();
 			//load up OTHER FXML document
 			root = FXMLLoader.load(getClass().getResource("Search.fxml"));
 		}
 	
-		else if(event.getSource()==btn2) {
+		else if(event.getSource()==borrowBtn) {
 			System.out.println("Pressed Btn2");
 			//get reference to the button's stage         
-			stage =(Stage) btn2.getScene().getWindow();
+			stage =(Stage) borrowBtn.getScene().getWindow();
 			//load up OTHER FXML document
 			root = FXMLLoader.load(getClass().getResource("Borrow.fxml"));
 		}
 	
-		else if(event.getSource()==btn3) {
+		else if(event.getSource()==returnBtn) {
 			System.out.println("Pressed Btn3");
 			//get reference to the button's stage         
-			stage =(Stage) btn3.getScene().getWindow();
+			stage =(Stage) returnBtn.getScene().getWindow();
 			//load up OTHER FXML document
 			root = FXMLLoader.load(getClass().getResource("Return.fxml"));
 	    }
 	   
 	    else {
-	        stage=(Stage) btn4.getScene().getWindow();
+	        stage=(Stage) accountBtn.getScene().getWindow();
 	        root = FXMLLoader.load(getClass().getResource("Account.fxml"));
 	    }
 		//create a new scene with root and set the stage
