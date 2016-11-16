@@ -2,7 +2,6 @@ package application;
 
 
 import java.io.IOException;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,21 +13,22 @@ import javafx.stage.Stage;
 public class MainController {
 	
 	@FXML
-	Button searchBtn;
+	protected Button searchBtn;
 	
 	@FXML
-	Button borrowBtn;
+	protected Button borrowBtn;
 	
 	@FXML
-	Button returnBtn;
+	protected Button returnBtn;
 	
 	@FXML
-	Button accountBtn;
+	protected Button accountBtn;
+	
 	
 	
 	//Handler für die Buttons des Menüs
 	@FXML
-	private void handleButtonAction(ActionEvent event) throws IOException{
+	public void handleButtonAction(ActionEvent event) throws IOException{
 		Stage stage; 
 		Parent root;
    
@@ -65,5 +65,6 @@ public class MainController {
 		stage.setScene(scene);
 		stage.show();
 	}
+	
 
 }

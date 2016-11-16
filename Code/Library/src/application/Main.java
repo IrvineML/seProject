@@ -12,9 +12,10 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			Pane root = (Pane) FXMLLoader.load(getClass().getResource("Main.fxml"));
-			Scene scene = new Scene(root,1000,600);
+			Scene scene = new Scene(root,1024,768);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
+			primaryStage.setTitle("Bibliothek FH Aachen");
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
