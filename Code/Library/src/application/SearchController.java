@@ -35,6 +35,11 @@ public class SearchController extends MainController implements Initializable {
 		author.setCellValueFactory(new PropertyValueFactory<Book, String>("author"));
 		availability.setCellValueFactory(new PropertyValueFactory<Book, String>("availability"));
 		position.setCellValueFactory(new PropertyValueFactory<Book, String>("position"));
+		
+		//Set Color for Background and Button
+		searchBtn.setStyle("-fx-base: #9EE1C5;");
+		centerAnchorPane.setStyle("-fx-background-color: #F5F5F5;");
+		leftVBox.getStyleClass().add("vbox");
 	}
 	
 

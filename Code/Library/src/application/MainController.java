@@ -8,6 +8,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class MainController {
@@ -24,13 +26,19 @@ public class MainController {
 	@FXML
 	protected Button accountBtn;
 	
+	@FXML
+	protected VBox leftVBox;
 	
+	@FXML
+	protected AnchorPane centerAnchorPane;
+	
+	protected Parent root;
 	
 	//Handler für die Buttons des Menüs
 	@FXML
 	public void handleButtonAction(ActionEvent event) throws IOException{
 		Stage stage; 
-		Parent root;
+		//Parent root;
    
 		if(event.getSource()==searchBtn) {
 			System.out.println("Pressed Btn1");
@@ -62,6 +70,7 @@ public class MainController {
 	    }
 		//create a new scene with root and set the stage
 		Scene scene = new Scene(root);
+		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 		stage.setScene(scene);
 		stage.show();
 	}
