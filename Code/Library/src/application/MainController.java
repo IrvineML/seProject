@@ -32,6 +32,9 @@ public class MainController {
 	@FXML
 	protected AnchorPane centerAnchorPane;
 	
+	@FXML
+	protected AnchorPane topAnchorPane;
+	
 	protected Parent root;
 	
 	//Handler für die Buttons des Menüs
@@ -74,6 +77,21 @@ public class MainController {
 		stage.setScene(scene);
 		stage.show();
 	}
+	
+	protected void setNavButtonStyle(Button button) {
+		
+		searchBtn.getStyleClass().add("nav-button");
+		borrowBtn.getStyleClass().add("nav-button");
+		returnBtn.getStyleClass().add("nav-button");
+		accountBtn.getStyleClass().add("nav-button");
+		leftVBox.getStyleClass().add("vbox");
+		
+		if(button != null) {
+			button.getStyleClass().remove("nav-button");
+			button.getStyleClass().add("nav-button-selected");
+		}
+	}
+	
 	
 
 }

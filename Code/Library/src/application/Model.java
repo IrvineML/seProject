@@ -64,5 +64,44 @@ public class Model {
 		
 		return accountList;
 	}
+	
+public ObservableList<Book> generateBorrowList(int bookCount) {
+		
+		Book book1 = new Book("3836241196","Christian Ullenboom", "Java ist auch eine Insel","2016","12","ZZ999");
+		Book book2 = new Book("3836220210","Jürgen Wolf","C++: Das umfassende Handbuch","2014","3","WX123");
+		Book book3 = new Book("3645604154","T. J. O'Connor","Python Hacking","2015","1","ZB012");
+		
+		book1.setFrom("20.12.2016");
+		book1.setUntil("03.02.2017");
+		
+		book2.setFrom("20.12.2016");
+		book2.setUntil("03.02.2017");
+		
+		book3.setFrom("20.12.2016");
+		book3.setUntil("03.02.2017");
+		
+		if(bookCount == 1) {
+			accountList = FXCollections.observableArrayList(
+					book1);
+		}
+		else if(bookCount == 2) {
+			accountList = FXCollections.observableArrayList(
+					book1,
+					book2
+			);
+			
+		}
+		else {
+			accountList = FXCollections.observableArrayList(
+					book1,
+					book2,
+					book3
+			);
+		}
+		
+		return accountList;
+	}
+	
+	
 
 }

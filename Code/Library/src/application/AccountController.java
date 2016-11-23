@@ -31,9 +31,7 @@ public class AccountController extends MainController implements Initializable {
 		until.setCellValueFactory(new PropertyValueFactory<Book, String>("until"));
 		
 		//Set Color for Background and Button
-		accountBtn.setStyle("-fx-base: #9EE1C5;");
-		centerAnchorPane.setStyle("-fx-background-color: #F5F5F5;");
-		leftVBox.getStyleClass().add("vbox");
+		setNavButtonStyle(accountBtn);
 		
 		Model model = new Model();
 		list = model.generateAccountList();

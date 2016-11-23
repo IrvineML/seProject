@@ -1,4 +1,33 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
 .vbox {
-    -fx-background-color: #B9BCB9;
+    -fx-background-color: #467082;
+}
+
+.button {
+    -fx-base: #809EAD;
+    -fx-text-fill: white;
+}
+
+.anchor-pane {
+	-fx-background-color: #F5F5F5;
+}
+
+.nav-button-selected {
+    -fx-base: #ABACB0;
+    -fx-text-fill: white;
+    -fx-font-size: 18;
+    -fx-font-weight: bold;
+}
+
+.nav-button {
+    -fx-base: #F5F5F5;
+    -fx-text-fill: black;
+}
+
+.table-view .column-header-background{
+    -fx-base: #809EAD;
+}
+
+.table-view .column-header-background .label{
+    -fx-text-fill: white;
 }

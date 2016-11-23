@@ -12,7 +12,6 @@ public class StartController extends MainController implements Initializable{
 	public void initialize(URL location, ResourceBundle resources) {
 		
 		//Set Color for Background and Button
-		centerAnchorPane.setStyle("-fx-background-color: #F5F5F5;");
-		leftVBox.getStyleClass().add("vbox");
+		setNavButtonStyle(null);
 	}
 }

@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -24,6 +25,7 @@ public class SearchController extends MainController implements Initializable {
 	@FXML private TextField textFieldTitle;
 	@FXML private TextField textFieldAuthor;
 	@FXML private TextField textFieldISBN;
+	@FXML private Button startSearchBtn;
 	
 	public ObservableList<Book> list;
 	
@@ -37,9 +39,7 @@ public class SearchController extends MainController implements Initializable {
 		position.setCellValueFactory(new PropertyValueFactory<Book, String>("position"));
 		
 		//Set Color for Background and Button
-		searchBtn.setStyle("-fx-base: #9EE1C5;");
-		centerAnchorPane.setStyle("-fx-background-color: #F5F5F5;");
-		leftVBox.getStyleClass().add("vbox");
+		setNavButtonStyle(searchBtn);
 	}
 	
 

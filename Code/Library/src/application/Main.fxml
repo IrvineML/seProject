@@ -11,7 +11,7 @@
    <left>
       <VBox fx:id="leftVBox" layoutX="30.0" layoutY="43.0" prefHeight="768.0" prefWidth="227.0" spacing="10.0">
          <children>
-            <Button fx:id="accountBtn" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="88.0" prefWidth="182.0" text="Konto">
+            <Button fx:id="accountBtn" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="88.0" prefWidth="182.0" text="Mein Konto">
                <font>
                   <Font size="18.0" />
                </font>
