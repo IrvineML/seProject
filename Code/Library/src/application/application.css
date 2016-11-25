@@ -4,7 +4,7 @@
 }
 
 .button {
-    -fx-base: #809EAD;
+    -fx-base: #467082;
     -fx-text-fill: white;
 }
 
@@ -25,7 +25,7 @@
 }
 
 .table-view .column-header-background{
-    -fx-base: #809EAD;
+    -fx-base: #467082;
 }
 
 .table-view .column-header-background .label{

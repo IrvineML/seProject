@@ -12,7 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class MainController {
+public abstract class MainController {
 	
 	@FXML
 	protected Button searchBtn;
