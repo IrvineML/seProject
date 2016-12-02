@@ -2,6 +2,7 @@ package application;
 
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringPropertyBase;
 import javafx.scene.control.Button;
 
 public class Book {
@@ -14,7 +15,7 @@ public class Book {
 	private final SimpleStringProperty position;
 	private SimpleStringProperty from;
 	private SimpleStringProperty until;
-	private SimpleObjectProperty<Button> button;
+	private Button button;
 	
 	
 
@@ -28,6 +29,7 @@ public class Book {
 		this.position = new SimpleStringProperty(position);
 		this.from = new SimpleStringProperty("");
 		this.until = new SimpleStringProperty("");
+		this.button = new Button();
 	}
 
 	public String getIsbn() {
@@ -72,13 +74,15 @@ public class Book {
 	public void setUntil(String until) {
 		this.until.setValue(until);
 	}
-	
+
 	public Button getButton() {
-		return button.get();
+		return button;
 	}
 
 	public void setButton(Button button) {
-		this.button.setValue(button);
+		this.button = button;
 	}
+	
+	
 	
 }

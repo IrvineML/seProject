@@ -73,6 +73,7 @@
                 <TableColumn fx:id="author" prefWidth="190.0" text="Author" />
                   <TableColumn fx:id="from" prefWidth="85.0" text="Von" />
                   <TableColumn fx:id="until" prefWidth="85.0" text="Bis" />
+                  <TableColumn fx:id="action" prefWidth="75.0" text="Action" />
               </columns>
             </TableView>
          </children>

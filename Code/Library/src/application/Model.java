@@ -3,6 +3,7 @@ package application;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Button;
 
 public class Model {
 	private ObservableList<Book> searchList = null;
@@ -32,6 +33,7 @@ public class Model {
 				new Book("3645604154","T. J. O'Connor","Python Hacking","2015","1","ZB012")
 			);
 		}
+		
 		else if(index == 3) {
 			searchList = FXCollections.observableArrayList(
 					new Book("3836241196","Christian Ullenboom", "Java ist auch eine Insel","2016","12","ZZ999")
@@ -49,12 +51,15 @@ public class Model {
 		
 		book1.setFrom("18.11.2016");
 		book1.setUntil("18.01.2017");
+		book1.setButton(new Button());
 		
 		book2.setFrom("30.11.2016");
 		book2.setUntil("30.01.2017");
+		book2.setButton(new Button());
 		
 		book3.setFrom("03.12.2016");
 		book3.setUntil("03.02.2017");
+		book2.setButton(new Button());
 		
 		accountList = FXCollections.observableArrayList(
 				book1,

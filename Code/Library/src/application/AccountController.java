@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -18,6 +19,7 @@ public class AccountController extends MainController implements Initializable {
 	@FXML private TableColumn<Book, String> author;
 	@FXML private TableColumn<Book, String> from;
 	@FXML private TableColumn<Book, String> until;
+	@FXML private TableColumn<Book, Button> action;
 	
 	public ObservableList<Book> list;
 	
@@ -29,6 +31,7 @@ public class AccountController extends MainController implements Initializable {
 		author.setCellValueFactory(new PropertyValueFactory<Book, String>("author"));
 		from.setCellValueFactory(new PropertyValueFactory<Book, String>("from"));
 		until.setCellValueFactory(new PropertyValueFactory<Book, String>("until"));
+		action.setCellValueFactory(new PropertyValueFactory<Book,Button>("button"));
 		
 		//Set Color for Background and Button
 		setNavButtonStyle(accountBtn);
