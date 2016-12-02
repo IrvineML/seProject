@@ -2,7 +2,6 @@ package application;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,6 +21,7 @@ public class SearchController extends MainController implements Initializable {
 	@FXML private TableColumn<Book, String> author;
 	@FXML private TableColumn<Book, String> availability;
 	@FXML private TableColumn<Book, String> position;
+	@FXML private TableColumn<Book, Button> action;
 	@FXML private TextField textFieldTitle;
 	@FXML private TextField textFieldAuthor;
 	@FXML private TextField textFieldISBN;
@@ -37,9 +37,12 @@ public class SearchController extends MainController implements Initializable {
 		author.setCellValueFactory(new PropertyValueFactory<Book, String>("author"));
 		availability.setCellValueFactory(new PropertyValueFactory<Book, String>("availability"));
 		position.setCellValueFactory(new PropertyValueFactory<Book, String>("position"));
+		//action.setCellValueFactory(new PropertyValueFactory<Book, Button>("button"));
 		
 		//Set Color for Background and Button
 		setNavButtonStyle(searchBtn);
+		
+		
 	}
 	
 
@@ -58,10 +61,10 @@ public class SearchController extends MainController implements Initializable {
 			list = model.generateSearchList(model.ALLFILTER);
 		}
 		
+		
 		table.setItems(list);
 		
 	}
-
 	
 	
 }

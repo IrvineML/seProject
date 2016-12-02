@@ -58,6 +58,7 @@
           <TableColumn fx:id="author" prefWidth="190.0" text="Author" />
             <TableColumn fx:id="availability" text="Verfügbakeit" />
             <TableColumn fx:id="position" text="Standort" />
+               <TableColumn prefWidth="82.0" text="Action" />
         </columns>
       </TableView>
       <Label layoutX="30.0" layoutY="59.0" prefHeight="27.0" prefWidth="66.0" text="Titel:">

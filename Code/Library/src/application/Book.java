@@ -1,6 +1,8 @@
 package application;
 
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.scene.control.Button;
 
 public class Book {
 	
@@ -12,6 +14,7 @@ public class Book {
 	private final SimpleStringProperty position;
 	private SimpleStringProperty from;
 	private SimpleStringProperty until;
+	private SimpleObjectProperty<Button> button;
 	
 	
 
@@ -70,5 +73,12 @@ public class Book {
 		this.until.setValue(until);
 	}
 	
+	public Button getButton() {
+		return button.get();
+	}
 
+	public void setButton(Button button) {
+		this.button.setValue(button);
+	}
+	
 }
