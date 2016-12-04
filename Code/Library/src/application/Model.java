@@ -4,6 +4,8 @@ package application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
+
 
 public class Model {
 	private ObservableList<Book> searchList = null;
@@ -40,6 +42,20 @@ public class Model {
 			);
 		}
 		
+		for(int i = 0; i < searchList.size(); i++) {
+			Button b1 = new InfoButton();
+			HBox hbox1 = new HBox();
+			hbox1.getChildren().add(b1);
+			//Bsp. wenn kein Buch verfügbar ist
+			if(i == 2) {
+				hbox1.getChildren().add(new ReserveButton());
+			}
+			searchList.get(i).setButtonBox(hbox1);
+		}
+		
+		
+		
+		
 		return searchList;
 	}
 	
@@ -51,15 +67,28 @@ public class Model {
 		
 		book1.setFrom("18.11.2016");
 		book1.setUntil("18.01.2017");
-		book1.setButton(new Button());
+		Button b1 = new InfoButton();
+		Button b11 = new RefreshButton();
+		HBox hbox1 = new HBox();
+		hbox1.getChildren().add(b1);
+		hbox1.getChildren().add(b11);
+		book1.setButtonBox(hbox1);
 		
+		Button b2 = new InfoButton();
+		Button b21 = new RefreshButton();
 		book2.setFrom("30.11.2016");
 		book2.setUntil("30.01.2017");
-		book2.setButton(new Button());
+		HBox hbox2 = new HBox();
+		hbox2.getChildren().add(b2);
+		hbox2.getChildren().add(b21);
+		book2.setButtonBox(hbox2);
 		
+		Button b3 = new InfoButton();
 		book3.setFrom("03.12.2016");
 		book3.setUntil("03.02.2017");
-		book2.setButton(new Button());
+		HBox hbox3 = new HBox();
+		hbox3.getChildren().add(b3);
+		book3.setButtonBox(hbox3);
 		
 		accountList = FXCollections.observableArrayList(
 				book1,

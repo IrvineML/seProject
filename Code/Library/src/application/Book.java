@@ -1,9 +1,10 @@
 package application;
 
-import javafx.beans.property.SimpleObjectProperty;
+
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringPropertyBase;
 import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
+
 
 public class Book {
 	
@@ -16,7 +17,10 @@ public class Book {
 	private SimpleStringProperty from;
 	private SimpleStringProperty until;
 	private Button button;
+	private HBox buttonBox;
 	
+	
+
 	
 
 	public Book(String isbn, String author, String name, String year,
@@ -30,6 +34,7 @@ public class Book {
 		this.from = new SimpleStringProperty("");
 		this.until = new SimpleStringProperty("");
 		this.button = new Button();
+		this.buttonBox = new HBox();
 	}
 
 	public String getIsbn() {
@@ -81,6 +86,14 @@ public class Book {
 
 	public void setButton(Button button) {
 		this.button = button;
+	}
+	
+	public HBox getButtonBox() {
+		return buttonBox;
+	}
+
+	public void setButtonBox(HBox buttonBox) {
+		this.buttonBox = buttonBox;
 	}
 	
 	

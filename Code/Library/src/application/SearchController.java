@@ -11,6 +11,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
 
 
 public class SearchController extends MainController implements Initializable {
@@ -21,7 +22,7 @@ public class SearchController extends MainController implements Initializable {
 	@FXML private TableColumn<Book, String> author;
 	@FXML private TableColumn<Book, String> availability;
 	@FXML private TableColumn<Book, String> position;
-	@FXML private TableColumn<Book, Button> action;
+	@FXML private TableColumn<Book, HBox> action;
 	@FXML private TextField textFieldTitle;
 	@FXML private TextField textFieldAuthor;
 	@FXML private TextField textFieldISBN;
@@ -37,11 +38,10 @@ public class SearchController extends MainController implements Initializable {
 		author.setCellValueFactory(new PropertyValueFactory<Book, String>("author"));
 		availability.setCellValueFactory(new PropertyValueFactory<Book, String>("availability"));
 		position.setCellValueFactory(new PropertyValueFactory<Book, String>("position"));
-		//action.setCellValueFactory(new PropertyValueFactory<Book, Button>("button"));
+		action.setCellValueFactory(new PropertyValueFactory<Book,HBox>("buttonBox"));
 		
 		//Set Color for Background and Button
-		setNavButtonStyle(searchBtn);
-		
+		setNavButtonStyle(searchBtn);		
 		
 	}
 	
