@@ -37,7 +37,7 @@ public class AccountController extends MainController implements Initializable {
 		//Set Color for Background and Button
 		setNavButtonStyle(accountBtn);
 		
-		Model model = new Model();
+		Model model = new Model(this);
 		list = model.generateAccountList();
 		table.setItems(list);
 	}

@@ -8,12 +8,33 @@ import javafx.scene.layout.HBox;
 
 
 public class Model {
-	private ObservableList<Book> searchList = null;
-	private ObservableList<Book> accountList = null;
+	private static ObservableList<Book> searchList = null;
+	private static ObservableList<Book> accountList = null;
+	private static ObservableList<Book> borrowList = null;
+	private static ObservableList<Book> returnList = null;
 	
 	public final int JAVAFILTER = 1;
 	public final int ALLFILTER = 2;
 	public final int ULLENBOOM = 3;
+	
+	private MainController controller;
+	
+	public Model(MainController controller) {
+		this.controller = controller;
+		if(searchList == null) {
+			searchList = FXCollections.observableArrayList();
+		}
+		if(accountList == null) {
+			searchList = FXCollections.observableArrayList();
+		}
+		if(borrowList == null) {
+			searchList = FXCollections.observableArrayList();
+		}
+		if(returnList == null) {
+			searchList = FXCollections.observableArrayList();
+		}
+	}
+	
 	
 	public ObservableList<Book> generateSearchList(int index) {
 		
@@ -52,9 +73,6 @@ public class Model {
 			}
 			searchList.get(i).setButtonBox(hbox1);
 		}
-		
-		
-		
 		
 		return searchList;
 	}
@@ -99,7 +117,9 @@ public class Model {
 		return accountList;
 	}
 	
-public ObservableList<Book> generateBorrowList(int bookCount) {
+	
+
+	public ObservableList<Book> generateBorrowList(int bookCount) {
 		
 		Book book1 = new Book("3836241196","Christian Ullenboom", "Java ist auch eine Insel","2016","12","ZZ999");
 		Book book2 = new Book("3836220210","Jürgen Wolf","C++: Das umfassende Handbuch","2014","3","WX123");
@@ -115,27 +135,65 @@ public ObservableList<Book> generateBorrowList(int bookCount) {
 		book3.setUntil("03.02.2017");
 		
 		if(bookCount == 1) {
-			accountList = FXCollections.observableArrayList(
+			borrowList = FXCollections.observableArrayList(
 					book1);
 		}
 		else if(bookCount == 2) {
-			accountList = FXCollections.observableArrayList(
+			borrowList = FXCollections.observableArrayList(
 					book1,
 					book2
 			);
 			
 		}
 		else {
-			accountList = FXCollections.observableArrayList(
+			borrowList = FXCollections.observableArrayList(
 					book1,
 					book2,
 					book3
 			);
 		}
 		
-		return accountList;
+		for(int i = 0; i < borrowList.size(); i++) {
+			Button b1 = new DeleteButton(borrowList.get(i),controller);
+			HBox hbox1 = new HBox();
+			hbox1.getChildren().add(b1);
+			borrowList.get(i).setButtonBox(hbox1);
+		}
+		
+		return borrowList;
 	}
 	
-	
+	public static ObservableList<Book> getSearchList() {
+		return searchList;
+	}
 
+	public static void setSearchList(ObservableList<Book> searchList) {
+		Model.searchList = searchList;
+	}
+
+	public static ObservableList<Book> getAccountList() {
+		return accountList;
+	}
+
+	public static void setAccountList(ObservableList<Book> accountList) {
+		Model.accountList = accountList;
+	}
+
+	public static ObservableList<Book> getBorrowList() {
+		return borrowList;
+	}
+
+	public static void setBorrowList(ObservableList<Book> borrowList) {
+		Model.borrowList = borrowList;
+	}
+	
+	public static ObservableList<Book> getReturnList() {
+		return returnList;
+	}
+
+	public static void setReturnList(ObservableList<Book> returnList) {
+		Model.returnList = returnList;
+	}
+
+	
 }

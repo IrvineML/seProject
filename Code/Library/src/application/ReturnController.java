@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
 
 public class ReturnController extends MainController implements Initializable {
 	
@@ -18,6 +19,7 @@ public class ReturnController extends MainController implements Initializable {
 	@FXML private TableColumn<Book, String> author;
 	@FXML private TableColumn<Book, String> from;
 	@FXML private TableColumn<Book, String> until;
+	@FXML private TableColumn<Book, HBox> action;
 	@FXML private TableView<Book> table;
 	@FXML private Label successMessage;
 	
@@ -32,6 +34,7 @@ public class ReturnController extends MainController implements Initializable {
 		author.setCellValueFactory(new PropertyValueFactory<Book, String>("author"));
 		from.setCellValueFactory(new PropertyValueFactory<Book, String>("from"));
 		until.setCellValueFactory(new PropertyValueFactory<Book, String>("until"));
+		action.setCellValueFactory(new PropertyValueFactory<Book,HBox>("buttonBox"));
 		
 		//Set Color for Background and Button
 		setNavButtonStyle(returnBtn);
@@ -43,7 +46,7 @@ public class ReturnController extends MainController implements Initializable {
 			successMessage.setVisible(false);
 		}
 		
-		Model model = new Model();
+		Model model = new Model(this);
 		list = model.generateBorrowList(count++);
 		table.setItems(list);
 	}
@@ -54,6 +57,10 @@ public class ReturnController extends MainController implements Initializable {
 			list.remove(0,list.size());
 			successMessage.setVisible(true);
 		}
+	}
+	
+	public void updateList(ObservableList<Book> list) {
+		table.setItems(list);
 	}
 
 }

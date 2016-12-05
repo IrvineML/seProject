@@ -14,6 +14,8 @@ import javafx.stage.Stage;
 
 public abstract class MainController {
 	
+	public final int ControllerID = 0;
+	
 	@FXML
 	protected Button searchBtn;
 	

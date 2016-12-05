@@ -48,7 +48,7 @@ public class SearchController extends MainController implements Initializable {
 
 	public void handleButtonSearchBooks(ActionEvent event) {
 		System.out.println("Pressed Search Button");
-		Model model = new Model();
+		Model model = new Model(this);
 		
 		if(textFieldTitle.getText().toUpperCase().contains("JAVA") 
 				&& textFieldAuthor.getText().toUpperCase().equals("ULLENBOOM")) {
