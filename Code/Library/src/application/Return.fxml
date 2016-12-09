@@ -55,7 +55,7 @@
             </placeholder>
               <columns>
                 <TableColumn fx:id="name" prefWidth="300.0" text="Titel" />
-                <TableColumn fx:id="author" minWidth="0.0" prefWidth="190.0" text="Author" />
+                <TableColumn fx:id="author" minWidth="0.0" prefWidth="190.0" text="Autor" />
                   <TableColumn fx:id="from" prefWidth="85.0" text="Von" />
                   <TableColumn fx:id="until" prefWidth="85.0" text="Bis" />
                   <TableColumn fx:id="action" prefWidth="75.0" text="Aktion" />
