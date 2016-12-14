@@ -50,7 +50,7 @@ public abstract class MainController {
 			//get reference to the button's stage         
 			stage =(Stage) searchBtn.getScene().getWindow();
 			//load up OTHER FXML document
-			root = FXMLLoader.load(getClass().getResource("Search.fxml"));
+			root = FXMLLoader.load(getClass().getResource("../View/Search.fxml"));
 		}
 	
 		else if(event.getSource()==borrowBtn) {
@@ -58,7 +58,7 @@ public abstract class MainController {
 			//get reference to the button's stage         
 			stage =(Stage) borrowBtn.getScene().getWindow();
 			//load up OTHER FXML document
-			root = FXMLLoader.load(getClass().getResource("Borrow.fxml"));
+			root = FXMLLoader.load(getClass().getResource("../View/Borrow.fxml"));
 		}
 	
 		else if(event.getSource()==returnBtn) {
@@ -66,16 +66,16 @@ public abstract class MainController {
 			//get reference to the button's stage         
 			stage =(Stage) returnBtn.getScene().getWindow();
 			//load up OTHER FXML document
-			root = FXMLLoader.load(getClass().getResource("Return.fxml"));
+			root = FXMLLoader.load(getClass().getResource("../View/Return.fxml"));
 	    }
 	   
 	    else {
 	        stage=(Stage) accountBtn.getScene().getWindow();
-	        root = FXMLLoader.load(getClass().getResource("Account.fxml"));
+	        root = FXMLLoader.load(getClass().getResource("../View/Account.fxml"));
 	    }
 		//create a new scene with root and set the stage
 		Scene scene = new Scene(root);
-		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+		scene.getStylesheets().add(getClass().getResource("../View/application.css").toExternalForm());
 		stage.setScene(scene);
 		stage.show();
 	}

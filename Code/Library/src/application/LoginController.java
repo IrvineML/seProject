@@ -17,9 +17,9 @@ public class LoginController extends MainController {
 		Stage stage = (Stage) loginButton.getScene().getWindow();
         try {
         	
-			root = FXMLLoader.load(getClass().getResource("Account.fxml"));
+			root = FXMLLoader.load(getClass().getResource("../View/Account.fxml"));
 			Scene scene = new Scene(root);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("../View/application.css").toExternalForm());
 			stage.setScene(scene);
 			stage.show();
 			

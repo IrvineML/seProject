@@ -11,9 +11,9 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			Pane root = (Pane) FXMLLoader.load(getClass().getResource("Login.fxml"));
+			Pane root = (Pane) FXMLLoader.load(getClass().getResource("../View/Login.fxml"));
 			Scene scene = new Scene(root,1024,768);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("../View/application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.setTitle("Shabo Client");
 			primaryStage.show();
