@@ -12,11 +12,13 @@ public class InfoButton extends Button {
 
 	public InfoButton() {
 		Image imageInfo = new Image(getClass().getResourceAsStream("../images/info.png"));
-		this.setScaleX(0.7);
-		this.setScaleY(0.7);
+		this.setScaleX(1.0);
+		this.setScaleY(1.0);
 		this.setGraphic(new ImageView(imageInfo));
+		this.setText("Details anzeigen");
 		this.setPadding(new Insets(0.5, 0.5, 0.5, 0.5));
 		this.setTooltip(new Tooltip("Zeige mehr Informationen"));
+		this.setMinSize(160, 20);
 		this.setOnAction(new EventHandler<ActionEvent>() {
 			
 			@Override

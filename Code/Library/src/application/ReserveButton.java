@@ -15,6 +15,7 @@ public class ReserveButton extends Button {
 		this.setScaleX(0.7);
 		this.setScaleY(0.7);
 		this.setGraphic(new ImageView(imageInfo));
+		
 		this.setPadding(new Insets(0.5, 0.5, 0.5, 0.5));
 		this.setTooltip(new Tooltip("Buch reservieren"));
 		this.setOnAction(new EventHandler<ActionEvent>() {

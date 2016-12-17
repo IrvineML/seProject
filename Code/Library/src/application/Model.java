@@ -1,17 +1,23 @@
 package application;
 
 
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 
 public class Model {
 	private static ObservableList<Book> searchList = null;
-	private static ObservableList<Book> accountList = null;
+	private static ObservableList<Book2> accountList = null;
 	private static ObservableList<Book> borrowList = null;
 	private static ObservableList<Book> returnList = null;
+	private static ObservableList<Book2> reserveList = null;
 	
 	public final int JAVAFILTER = 1;
 	public final int ALLFILTER = 2;
@@ -77,36 +83,48 @@ public class Model {
 		return searchList;
 	}
 	
-	public ObservableList<Book> generateAccountList() {
+	public ObservableList<Book2> generateAccountList() {
 		
-		Book book1 = new Book("3836241196","Christian Ullenboom", "Java ist auch eine Insel","2016","12","ZZ999");
-		Book book2 = new Book("3836220210","Jürgen Wolf","C++: Das umfassende Handbuch","2014","3","WX123");
-		Book book3 = new Book("3645604154","T. J. O'Connor","Python Hacking","2015","1","ZB012");
+		Book2 book1 = new Book2("3836241196","Christian Ullenboom", "Java ist auch eine Insel","2016","12","ZZ999");
+		Book2 book2 = new Book2("3836220210","Jürgen Wolf","C++: Das umfassende Handbuch","2014","3","WX123");
+		Book2 book3 = new Book2("3645604154","T. J. O'Connor","Python Hacking","2015","1","ZB012");
 		
 		book1.setFrom("18.11.2016");
-		book1.setUntil("18.01.2017");
+		book1.setUntilLabel("ausgeliehen bis 18.01.2017");
 		Button b1 = new InfoButton();
 		Button b11 = new RefreshButton();
-		HBox hbox1 = new HBox();
+		VBox hbox1 = new VBox();
+		hbox1.setSpacing(15);
+		hbox1.setPadding(new Insets(15, 15, 15, 15));
 		hbox1.getChildren().add(b1);
 		hbox1.getChildren().add(b11);
 		book1.setButtonBox(hbox1);
+		Image imageInfo1 = new Image(getClass().getResourceAsStream("../images/insel.jpg"));
+		book1.setBookImage(new ImageView(imageInfo1));
 		
 		Button b2 = new InfoButton();
 		Button b21 = new RefreshButton();
 		book2.setFrom("30.11.2016");
-		book2.setUntil("30.01.2017");
-		HBox hbox2 = new HBox();
+		book2.setUntilLabel("ausgeliehen bis 30.01.2017");
+		VBox hbox2 = new VBox();
+		hbox2.setSpacing(15);
+		hbox2.setPadding(new Insets(15, 15, 15, 15));
 		hbox2.getChildren().add(b2);
 		hbox2.getChildren().add(b21);
 		book2.setButtonBox(hbox2);
+		Image imageInfo2 = new Image(getClass().getResourceAsStream("../images/CPP.jpg"));
+		book2.setBookImage(new ImageView(imageInfo2));
 		
 		Button b3 = new InfoButton();
 		book3.setFrom("03.12.2016");
-		book3.setUntil("03.02.2017");
-		HBox hbox3 = new HBox();
+		book3.setUntilLabel("ausgeliehen bis 03.02.2017");
+		VBox hbox3 = new VBox();
+		hbox3.setSpacing(15);
+		hbox3.setPadding(new Insets(15, 15, 15, 15));
 		hbox3.getChildren().add(b3);
 		book3.setButtonBox(hbox3);
+		Image imageInfo3 = new Image(getClass().getResourceAsStream("../images/Phyton.jpg"));
+		book3.setBookImage(new ImageView(imageInfo3));
 		
 		accountList = FXCollections.observableArrayList(
 				book1,
@@ -115,6 +133,46 @@ public class Model {
 		);
 		
 		return accountList;
+	}
+	
+public ObservableList<Book2> generateReserveList() {
+		
+		Book2 book1 = new Book2("","Square Enix", "Rise of the Tomb Raider: 20-jähriges Jubiläum - Day One Edition","2016","2","ZZ999");
+		Book2 book2 = new Book2("","Linkin Park","Living Things","2010","3","WX123");
+		
+		book1.setFrom("18.11.2016");
+		book1.setUntilLabel("vorraussichtlich Verfügbar am 18.01.2017");
+		Button b1 = new InfoButton();
+		Button b11 = new DeleteButton();
+		VBox hbox1 = new VBox();
+		hbox1.setSpacing(15);
+		hbox1.setPadding(new Insets(15, 15, 15, 15));
+		hbox1.getChildren().add(b1);
+		hbox1.getChildren().add(b11);
+		book1.setButtonBox(hbox1);
+		Image imageInfo1 = new Image(getClass().getResourceAsStream("../images/TombRaider.jpg"));
+		book1.setBookImage(new ImageView(imageInfo1));
+		
+		Button b2 = new InfoButton();
+		Button b21 = new DeleteButton();
+		book2.setFrom("30.11.2016");
+		book2.setUntilLabel("vorraussichtlich Verfügbar am 30.01.2017");
+		VBox hbox2 = new VBox();
+		hbox2.setSpacing(15);
+		hbox2.setPadding(new Insets(15, 15, 15, 15));
+		hbox2.getChildren().add(b2);
+		hbox2.getChildren().add(b21);
+		book2.setButtonBox(hbox2);
+		Image imageInfo2 = new Image(getClass().getResourceAsStream("../images/linkinPark.jpg"));
+		book2.setBookImage(new ImageView(imageInfo2));
+		
+		
+		reserveList = FXCollections.observableArrayList(
+				book1,
+				book2
+		);
+		
+		return reserveList;
 	}
 	
 	
@@ -171,11 +229,11 @@ public class Model {
 		Model.searchList = searchList;
 	}
 
-	public static ObservableList<Book> getAccountList() {
+	public static ObservableList<Book2> getAccountList() {
 		return accountList;
 	}
 
-	public static void setAccountList(ObservableList<Book> accountList) {
+	public static void setAccountList(ObservableList<Book2> accountList) {
 		Model.accountList = accountList;
 	}
 

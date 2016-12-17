@@ -12,11 +12,13 @@ public class RefreshButton extends Button {
 
 	public RefreshButton() {
 		Image imageInfo = new Image(getClass().getResourceAsStream("../images/refresh.png"));
-		this.setScaleX(0.7);
-		this.setScaleY(0.7);
+		this.setScaleX(1.0);
+		this.setScaleY(1.0);
 		this.setGraphic(new ImageView(imageInfo));
+		this.setText("Ausleihfrist verlängern");
 		this.setPadding(new Insets(0.5, 0.5, 0.5, 0.5));
 		this.setTooltip(new Tooltip("Verlängere die Leihfrist"));
+		this.setMinSize(160, 20);
 		this.setOnAction(new EventHandler<ActionEvent>() {
 			
 			@Override

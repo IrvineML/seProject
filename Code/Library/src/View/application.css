@@ -28,6 +28,10 @@
     -fx-base: #467082;
 }
 
+.table-view .column-header .label {
+    -fx-font-size: 16px;
+}
+
 .table-view .column-header-background .label{
     -fx-text-fill: white;
 }
