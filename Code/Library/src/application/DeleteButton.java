@@ -3,6 +3,7 @@ package application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
@@ -15,14 +16,16 @@ public class DeleteButton extends Button{
 	public DeleteButton() {
 		book = null;
 		controller = null;
-		Image imageInfo = new Image(getClass().getResourceAsStream("../images/delete.png"));
+		Image imageInfo = new Image(getClass().getResourceAsStream("../images/delete2.png"));
 		this.setScaleX(1.0);
 		this.setScaleY(1.0);
 		this.setGraphic(new ImageView(imageInfo));
 		this.setPadding(new Insets(0.5, 0.5, 0.5, 0.5));
 		this.setTooltip(new Tooltip("Lösche Buch"));
-		this.setMinSize(160, 20);
-		this.setText("Artikel entfernen");
+		this.setMinSize(110, 25);
+		this.setMaxSize(110,25);
+		this.setAlignment(Pos.BASELINE_LEFT);
+		this.setText("Entfernen");
 	}
 	
 	public DeleteButton(Book book, MainController controller) {

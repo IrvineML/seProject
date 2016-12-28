@@ -12,33 +12,30 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 
 public class SearchController extends MainController implements Initializable {
 	
-	@FXML private TableView<Book> table;
+	@FXML private TableView<Book2> table;
 	
-	@FXML private TableColumn<Book, String> name;
-	@FXML private TableColumn<Book, String> author;
-	@FXML private TableColumn<Book, String> availability;
-	@FXML private TableColumn<Book, String> position;
-	@FXML private TableColumn<Book, HBox> action;
+	
+	@FXML private TableColumn<Book2, VBox> action;
+	@FXML private TableColumn<Book2, HBox> completeBox;
 	@FXML private TextField textFieldTitle;
 	@FXML private TextField textFieldAuthor;
 	@FXML private TextField textFieldISBN;
 	@FXML private Button startSearchBtn;
 	
-	public ObservableList<Book> list;
+	public ObservableList<Book2> list;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
 		System.out.println("Initialize Searchscene");
-		name.setCellValueFactory(new PropertyValueFactory<Book, String>("name"));
-		author.setCellValueFactory(new PropertyValueFactory<Book, String>("author"));
-		availability.setCellValueFactory(new PropertyValueFactory<Book, String>("availability"));
-		position.setCellValueFactory(new PropertyValueFactory<Book, String>("position"));
-		action.setCellValueFactory(new PropertyValueFactory<Book,HBox>("buttonBox"));
+		completeBox.setCellValueFactory(new PropertyValueFactory<Book2, HBox>("searchCompleteBox"));
+		action.setCellValueFactory(new PropertyValueFactory<Book2,VBox>("buttonBox"));
+		
 		
 		//Set Color for Background and Button
 		setNavButtonStyle(searchBtn);		
@@ -60,7 +57,6 @@ public class SearchController extends MainController implements Initializable {
 		else if(textFieldTitle.getText().toUpperCase().contains("") && textFieldAuthor.getText().equals("")) {
 			list = model.generateSearchList(model.ALLFILTER);
 		}
-		
 		
 		table.setItems(list);
 		

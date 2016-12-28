@@ -10,12 +10,13 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import java.util.ArrayList;
 
 
 public class Model {
-	private static ObservableList<Book> searchList = null;
+	private static ObservableList<Book2> searchList = null;
 	private static ObservableList<Book2> accountList = null;
-	private static ObservableList<Book> borrowList = null;
+	private static ObservableList<Book2> borrowList = null;
 	private static ObservableList<Book> returnList = null;
 	private static ObservableList<Book2> reserveList = null;
 	
@@ -42,31 +43,79 @@ public class Model {
 	}
 	
 	
-	public ObservableList<Book> generateSearchList(int index) {
+	public ObservableList<Book2> generateSearchList(int index) {
 		
 		if(index == 1) {
 			searchList = FXCollections.observableArrayList(
-				new Book("3836241307","Hans-Peter Habelitz","Programmieren lernen mit Java","2016","2","XY238"),
-				new Book("3836241196","Christian Ullenboom", "Java ist auch eine Insel","2016","12","ZZ999"),
-				new Book("3897214482","Kathy Sierra","Java von Kopf bis Fuß","2006","0",""),
-				new Book("3864901693","Anton Epple","JavaFX 8: Grundlagen und fortgeschrittene Techniken","2015","5","WW223")
+				new Book2("3836241307","Hans-Peter Habelitz","Programmieren lernen mit Java","2016","2","XY238"),
+				new Book2("3836241196","Christian Ullenboom", "Java ist auch eine Insel","2016","12","ZZ999"),
+				new Book2("3897214482","Kathy Sierra","Java von Kopf bis Fuß","2006","0",""),
+				new Book2("3864901693","Anton Epple","JavaFX 8: Grundlagen und fortgeschrittene Techniken","2015","5","WW223")
 			);
+			
+			ArrayList<String> pics = new ArrayList<>();
+			pics.add("../images/programmieren_lernen.jpg");
+			pics.add("../images/insel.jpg");
+			pics.add("../images/java_von_kopf.jpg");
+			pics.add("../images/javaFx8.jpg");
+			
+			for(int i = 0; i<pics.size(); i++) {
+				searchList.get(i).setSearchBookImage(new ImageView(new Image(getClass().getResourceAsStream(pics.get(i)))));
+				Button b1 = new InfoButton();
+				VBox vbox1 = new VBox();
+				vbox1.setSpacing(15);
+				vbox1.setPadding(new Insets(15, 15, 15, 15));
+				vbox1.getChildren().add(b1);
+				searchList.get(i).setButtonBox(vbox1);
+				if(i == 2) {
+					Button b2 = new ReserveButton();
+					vbox1.getChildren().add(b2);
+				}
+			}
+			
+			
 		}
 		else if(index == 2) {
 			searchList = FXCollections.observableArrayList(
-				new Book("3836241307","Hans-Peter Habelitz","Programmieren lernen mit Java","2016","2","XY238"),
-				new Book("3836241196","Christian Ullenboom", "Java ist auch eine Insel","2016","12","ZZ999"),
-				new Book("3897214482","Kathy Sierra","Java von Kopf bis Fuß","2006","0",""),
-				new Book("3864901693","Anton Epple","JavaFX 8: Grundlagen und fortgeschrittene Techniken","2015","5","WW223"),
-				new Book("3836220210","Jürgen Wolf","C++: Das umfassende Handbuch","2014","3","WX123"),
-				new Book("3645604154","T. J. O'Connor","Python Hacking","2015","1","ZB012")
+				new Book2("3836241307","Hans-Peter Habelitz","Programmieren lernen mit Java","2016","2","XY238"),
+				new Book2("3836241196","Christian Ullenboom", "Java ist auch eine Insel","2016","12","ZZ999"),
+				new Book2("3897214482","Kathy Sierra","Java von Kopf bis Fuß","2006","0",""),
+				new Book2("3864901693","Anton Epple","JavaFX 8: Grundlagen und fortgeschrittene Techniken","2015","5","WW223"),
+				new Book2("3836220210","Jürgen Wolf","C++: Das umfassende Handbuch","2014","3","WX123"),
+				new Book2("3645604154","T. J. O'Connor","Python Hacking","2015","1","ZB012")
 			);
+			
+			ArrayList<String> pics = new ArrayList<>();
+			pics.add("../images/programmieren_lernen.jpg");
+			pics.add("../images/insel.jpg");
+			pics.add("../images/java_von_kopf.jpg");
+			pics.add("../images/javaFx8.jpg");
+			pics.add("../images/CPP.jpg");
+			pics.add("../images/Phyton.jpg");
+			
+			for(int i = 0; i<pics.size(); i++) {
+				searchList.get(i).setSearchBookImage(new ImageView(new Image(getClass().getResourceAsStream(pics.get(i)))));
+				Button b1 = new InfoButton();
+				VBox vbox1 = new VBox();
+				vbox1.setSpacing(15);
+				vbox1.setPadding(new Insets(15, 15, 15, 15));
+				vbox1.getChildren().add(b1);
+				searchList.get(i).setButtonBox(vbox1);
+				if(i == 2) {
+					Button b2 = new ReserveButton();
+					vbox1.getChildren().add(b2);
+				}
+			}
+			
+			
 		}
 		
 		else if(index == 3) {
 			searchList = FXCollections.observableArrayList(
-					new Book("3836241196","Christian Ullenboom", "Java ist auch eine Insel","2016","12","ZZ999")
+					new Book2("3836241196","Christian Ullenboom", "Java ist auch eine Insel","2016","12","ZZ999")
 			);
+			
+			searchList.get(0).setSearchBookImage(new ImageView(new Image(getClass().getResourceAsStream("../images/insel.jpg"))));
 		}
 		
 		for(int i = 0; i < searchList.size(); i++) {
@@ -77,7 +126,7 @@ public class Model {
 			if(i == 2) {
 				hbox1.getChildren().add(new ReserveButton());
 			}
-			searchList.get(i).setButtonBox(hbox1);
+			//searchList.get(i).setButtonBox(hbox1);
 		}
 		
 		return searchList;
@@ -177,30 +226,37 @@ public ObservableList<Book2> generateReserveList() {
 	
 	
 
-	public ObservableList<Book> generateBorrowList(int bookCount) {
+	public ObservableList<Book2> generateBorrowList(int bookCount) {
 		
-		Book book1 = new Book("3836241196","Christian Ullenboom", "Java ist auch eine Insel","2016","12","ZZ999");
-		Book book2 = new Book("3836220210","Jürgen Wolf","C++: Das umfassende Handbuch","2014","3","WX123");
-		Book book3 = new Book("3645604154","T. J. O'Connor","Python Hacking","2015","1","ZB012");
+		Book2 book1 = new Book2("3836241196","Christian Ullenboom", "Java ist auch eine Insel","2016","12","ZZ999");
+		Book2 book2 = new Book2("3836220210","Jürgen Wolf","C++: Das umfassende Handbuch","2014","3","WX123");
+		Book2 book3 = new Book2("3645604154","T. J. O'Connor","Python Hacking","2015","1","ZB012");
 		
 		book1.setFrom("20.12.2016");
-		book1.setUntil("03.02.2017");
+		book1.setUntilLabel("ausgeliehen bis 18.01.2017");
 		
 		book2.setFrom("20.12.2016");
-		book2.setUntil("03.02.2017");
+		book2.setUntilLabel("ausgeliehen bis 15.02.2017");
 		
 		book3.setFrom("20.12.2016");
-		book3.setUntil("03.02.2017");
+		book3.setUntilLabel("ausgeliehen bis 25.02.2017");
 		
 		if(bookCount == 1) {
 			borrowList = FXCollections.observableArrayList(
 					book1);
+			Image imageInfo1 = new Image(getClass().getResourceAsStream("../images/insel.jpg"));
+			book1.setBookImage(new ImageView(imageInfo1));
+			
 		}
 		else if(bookCount == 2) {
 			borrowList = FXCollections.observableArrayList(
 					book1,
 					book2
 			);
+			Image imageInfo1 = new Image(getClass().getResourceAsStream("../images/insel.jpg"));
+			book1.setBookImage(new ImageView(imageInfo1));
+			Image imageInfo2 = new Image(getClass().getResourceAsStream("../images/CPP.jpg"));
+			book2.setBookImage(new ImageView(imageInfo2));
 			
 		}
 		else {
@@ -209,23 +265,32 @@ public ObservableList<Book2> generateReserveList() {
 					book2,
 					book3
 			);
+			Image imageInfo1 = new Image(getClass().getResourceAsStream("../images/insel.jpg"));
+			book1.setBookImage(new ImageView(imageInfo1));
+			Image imageInfo2 = new Image(getClass().getResourceAsStream("../images/CPP.jpg"));
+			book2.setBookImage(new ImageView(imageInfo2));
+			Image imageInfo3 = new Image(getClass().getResourceAsStream("../images/Phyton.jpg"));
+			book3.setBookImage(new ImageView(imageInfo3));
 		}
 		
+		
 		for(int i = 0; i < borrowList.size(); i++) {
-			Button b1 = new DeleteButton(borrowList.get(i),controller);
-			HBox hbox1 = new HBox();
-			hbox1.getChildren().add(b1);
-			borrowList.get(i).setButtonBox(hbox1);
+			Button b1 = new DeleteButton(/*borrowList.get(i),controller*/);
+			VBox vbox1 = new VBox();
+			vbox1.getChildren().add(b1);
+			vbox1.setSpacing(15);
+			vbox1.setPadding(new Insets(15, 15, 15, 15));
+			borrowList.get(i).setButtonBox(vbox1);
 		}
 		
 		return borrowList;
 	}
 	
-	public static ObservableList<Book> getSearchList() {
+	public static ObservableList<Book2> getSearchList() {
 		return searchList;
 	}
 
-	public static void setSearchList(ObservableList<Book> searchList) {
+	public static void setSearchList(ObservableList<Book2> searchList) {
 		Model.searchList = searchList;
 	}
 
@@ -237,11 +302,11 @@ public ObservableList<Book2> generateReserveList() {
 		Model.accountList = accountList;
 	}
 
-	public static ObservableList<Book> getBorrowList() {
+	public static ObservableList<Book2> getBorrowList() {
 		return borrowList;
 	}
 
-	public static void setBorrowList(ObservableList<Book> borrowList) {
+	public static void setBorrowList(ObservableList<Book2> borrowList) {
 		Model.borrowList = borrowList;
 	}
 	

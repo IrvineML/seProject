@@ -12,29 +12,24 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 public class ReturnController extends MainController implements Initializable {
 	
-	@FXML private TableColumn<Book, String> name;
-	@FXML private TableColumn<Book, String> author;
-	@FXML private TableColumn<Book, String> from;
-	@FXML private TableColumn<Book, String> until;
-	@FXML private TableColumn<Book, HBox> action;
-	@FXML private TableView<Book> table;
+	@FXML private TableColumn<Book2, VBox> action;
+	@FXML private TableColumn<Book2, HBox> completeBox;
+	@FXML private TableView<Book2> table;
 	@FXML private Label successMessage;
 	
-	public ObservableList<Book> list;
+	public ObservableList<Book2> list;
 	
 	private int count = 1;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		
-		name.setCellValueFactory(new PropertyValueFactory<Book, String>("name"));
-		author.setCellValueFactory(new PropertyValueFactory<Book, String>("author"));
-		from.setCellValueFactory(new PropertyValueFactory<Book, String>("from"));
-		until.setCellValueFactory(new PropertyValueFactory<Book, String>("until"));
-		action.setCellValueFactory(new PropertyValueFactory<Book,HBox>("buttonBox"));
+		completeBox.setCellValueFactory(new PropertyValueFactory<Book2, HBox>("completeBox"));
+		action.setCellValueFactory(new PropertyValueFactory<Book2,VBox>("buttonBox"));
 		
 		//Set Color for Background and Button
 		setNavButtonStyle(returnBtn);
@@ -59,7 +54,7 @@ public class ReturnController extends MainController implements Initializable {
 		}
 	}
 	
-	public void updateList(ObservableList<Book> list) {
+	public void updateList(ObservableList<Book2> list) {
 		table.setItems(list);
 	}
 

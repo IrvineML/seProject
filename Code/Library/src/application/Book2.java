@@ -26,12 +26,16 @@ public class Book2 {
 	private VBox buttonBox;
 	private VBox infoBox;
 	private HBox completeBox;
-	private Label untilLabel;
-	private ImageView bookImage;
-	private VBox imageBox;
-	
+	private HBox searchCompleteBox;
 	
 
+	private Label untilLabel;
+	private ImageView bookImage;
+	private ImageView searchBookImage;
+
+	private VBox imageBox;
+	private VBox searchImageBox;
+	
 	
 
 	public Book2(String isbn, String author, String name, String year,
@@ -55,9 +59,7 @@ public class Book2 {
 		this.infoBox = new VBox();
 		this.infoBox.getChildren().add(nameLabel);
 		this.infoBox.getChildren().add(authorLabel);
-		//Label untilLabel = new Label("ausgeliehen bis 01.01.2017");
-		//untilLabel.setFont(new Font("System",14));
-		//this.infoBox.getChildren().add(untilLabel);
+		
 		this.completeBox = new HBox();
 		this.completeBox.getChildren().add(infoBox);
 		this.completeBox.setPadding(new Insets(10));
@@ -65,6 +67,32 @@ public class Book2 {
 		this.imageBox = new VBox();
 		this.imageBox.setAlignment(Pos.CENTER);
 		imageBox.setMinSize(80, 70);
+		
+		//Aufbau für den Search Dialog
+		VBox searchInfoBox = new VBox();
+		Label searchNameLabel = new Label(name);
+		searchNameLabel.setFont(new Font("System",18));
+		Label searchAuthorLabel = new Label("von " + author);
+		searchAuthorLabel.setFont(new Font("System",14));
+		Label positionLabel;
+		if(availability.equals("0")) {
+			positionLabel = new Label("alle Artikel sind ausgeliehen");
+		}
+		else {
+			positionLabel = new Label("im Regal " + position);
+		}
+		positionLabel.setFont(new Font("System",14));
+		Label availabilityLabel = new Label(availability + " sind verfügbar ");
+		availabilityLabel.setFont(new Font("System",14));
+		searchInfoBox.getChildren().addAll(searchNameLabel,searchAuthorLabel,positionLabel,availabilityLabel);
+		this.searchCompleteBox = new HBox();
+		this.searchCompleteBox.getChildren().add(searchInfoBox);
+		this.searchCompleteBox.setPadding(new Insets(10));
+		this.searchCompleteBox.setSpacing(20);
+		this.searchImageBox = new VBox();
+		this.searchImageBox.setAlignment(Pos.CENTER);
+		searchImageBox.setMinSize(80, 70);
+		
 	}
 
 	public ImageView getBookImage() {
@@ -76,8 +104,21 @@ public class Book2 {
 		this.bookImage.setFitHeight(80);
 		this.bookImage.setPreserveRatio(true);
 		this.bookImage.setSmooth(true);
-		this.imageBox.getChildren().add(bookImage);
+		this.imageBox.getChildren().add(this.bookImage);
 		this.completeBox.getChildren().add(0,imageBox);
+	}
+	
+	public ImageView getSearchBookImage() {
+		return searchBookImage;
+	}
+
+	public void setSearchBookImage(ImageView searchBookImage) {
+		this.searchBookImage = searchBookImage;
+		this.searchBookImage.setFitHeight(80);
+		this.searchBookImage.setPreserveRatio(true);
+		this.searchBookImage.setSmooth(true);
+		this.searchImageBox.getChildren().add(this.searchBookImage);
+		this.searchCompleteBox.getChildren().add(0,searchImageBox);
 	}
 
 	public HBox getCompleteBox() {
@@ -86,6 +127,15 @@ public class Book2 {
 
 	public void setCompleteBox(HBox completeBox) {
 		this.completeBox = completeBox;
+	}
+	
+
+	public HBox getSearchCompleteBox() {
+		return searchCompleteBox;
+	}
+
+	public void setSearchCompleteBox(HBox searchCompleteBox) {
+		this.searchCompleteBox = searchCompleteBox;
 	}
 
 	public String getIsbn() {
