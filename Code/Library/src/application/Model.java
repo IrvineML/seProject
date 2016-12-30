@@ -190,7 +190,7 @@ public ObservableList<Book2> generateReserveList() {
 		Book2 book2 = new Book2("","Linkin Park","Living Things","2010","3","WX123");
 		
 		book1.setFrom("18.11.2016");
-		book1.setUntilLabel("vorraussichtlich Verfügbar am 18.01.2017");
+		book1.setUntilLabel("vorraussichtlich verfügbar am 18.01.2017");
 		Button b1 = new InfoButton();
 		Button b11 = new DeleteButton();
 		VBox hbox1 = new VBox();
@@ -205,7 +205,7 @@ public ObservableList<Book2> generateReserveList() {
 		Button b2 = new InfoButton();
 		Button b21 = new DeleteButton();
 		book2.setFrom("30.11.2016");
-		book2.setUntilLabel("vorraussichtlich Verfügbar am 30.01.2017");
+		book2.setUntilLabel("vorraussichtlich verfügbar am 30.01.2017");
 		VBox hbox2 = new VBox();
 		hbox2.setSpacing(15);
 		hbox2.setPadding(new Insets(15, 15, 15, 15));
